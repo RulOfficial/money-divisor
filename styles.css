@@ -1,0 +1,398 @@
+* {
+box-sizing:border-box
+}
+
+.amount-negative {
+color:#ff9f9f
+}
+
+.amount-neutral {
+color:var(--muted)
+}
+
+.amount-positive {
+color:#7bf0b0
+}
+
+.app-shell {
+margin:0 auto;
+padding:28px 0 40px;
+position:relative;
+width:min(1280px,calc(100% - 32px));
+z-index:1
+}
+
+.backdrop {
+border-radius:999px;
+filter:blur(12px);
+inset:auto;
+opacity:.36;
+pointer-events:none;
+position:fixed
+}
+
+.backdrop-a {
+background:#58d6c633;
+height:320px;
+right:-90px;
+top:-80px;
+width:320px
+}
+
+.backdrop-b {
+background:#f6b66a29;
+height:280px;
+left:-100px;
+top:35vh;
+width:280px
+}
+
+.badge,.tag {
+align-items:center;
+background:#ffffff0d;
+border:1px solid #9fb0cd1f;
+border-radius:999px;
+display:inline-flex;
+font-size:.83rem;
+margin:0 6px 6px 0;
+padding:5px 10px;
+white-space:normal
+}
+
+.chip {
+background:#58d6c624;
+border:1px solid #58d6c63d;
+border-radius:999px;
+color:var(--text);
+padding:10px 14px
+}
+
+.danger {
+color:var(--danger)
+}
+
+.empty-state {
+color:var(--muted);
+padding:18px;
+text-align:center
+}
+
+.expense-participants,.chip-row {
+display:flex;
+flex-wrap:wrap
+}
+
+.eyebrow {
+color:var(--accent);
+font-size:.78rem;
+letter-spacing:.22em;
+margin:0 0 10px;
+text-transform:uppercase
+}
+
+.grid-layout {
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+margin-bottom:20px
+}
+
+.hero {
+align-items:end;
+display:grid;
+grid-template-columns:minmax(0,1.8fr) minmax(280px,0.9fr);
+margin-bottom:22px
+}
+
+.hero-card {
+border-radius:28px;
+display:grid;
+padding:18px
+}
+
+.hero-card,.panel,.matrix-card {
+backdrop-filter:blur(16px);
+background:var(--panel);
+border:1px solid var(--panel-border);
+box-shadow:var(--shadow)
+}
+
+.hero-card__actions {
+background:#ffffff08;
+border:1px solid #9fb0cd24;
+border-radius:16px;
+display:grid;
+grid-template-columns:1fr;
+padding:14px
+}
+
+.hero-card__actions .ghost {
+width:100%
+}
+
+.hero-card__item {
+align-items:center;
+background:#ffffff0a;
+border-radius:18px;
+display:flex;
+justify-content:space-between;
+padding:14px 16px
+}
+
+.hero-card__item span,.panel-head p,.split-header p,label,.expense-meta,.helper-text {
+color:var(--muted)
+}
+
+.hero-card__item strong {
+font-size:1.35rem
+}
+
+.inline-form {
+display:grid;
+grid-template-columns:minmax(0,1fr) auto;
+margin-bottom:16px
+}
+
+.lead {
+color:var(--muted);
+font-size:1.03rem;
+line-height:1.65;
+margin:16px 0 0;
+max-width:70ch
+}
+
+.matrix-card h3 {
+margin-bottom:14px
+}
+
+.panel,.matrix-card {
+border-radius:var(--radius);
+padding:20px
+}
+
+.panel-head {
+align-items:end;
+display:flex;
+justify-content:space-between;
+margin-bottom:18px
+}
+
+.panel-head h2 {
+font-size:1.45rem
+}
+
+.panel-head p {
+line-height:1.5;
+margin:6px 0 0
+}
+
+.panel-wide {
+grid-column:1 / -1
+}
+
+.participant-option {
+align-items:center;
+background:#ffffff0a;
+border:1px solid #9fb0cd2e;
+border-radius:16px;
+color:var(--text);
+cursor:pointer;
+display:inline-flex;
+padding:10px 12px
+}
+
+.participant-option input {
+margin:0;
+width:auto
+}
+
+.primary,.inline-form button {
+background:linear-gradient(135deg,var(--accent),#7bf0b0);
+color:#03131b
+}
+
+.primary,.inline-form button,.split-actions button,.ghost {
+border-radius:14px;
+font-weight:700;
+padding:12px 16px
+}
+
+.secondary-grid {
+grid-template-columns:minmax(0,1.3fr) minmax(320px,0.8fr)
+}
+
+.settlement-grid {
+display:grid;
+grid-template-columns:minmax(0,1.1fr) minmax(280px,0.9fr)
+}
+
+.split-actions {
+display:flex;
+flex-wrap:wrap
+}
+
+.split-actions button,.ghost {
+background:#ffffff0f;
+border:1px solid #9fb0cd29;
+color:var(--text)
+}
+
+.split-header {
+align-items:center;
+display:flex;
+justify-content:space-between
+}
+
+.split-header h3 {
+font-size:1.02rem;
+margin-bottom:4px
+}
+
+.stack-form {
+display:grid
+}
+
+.stack-form label {
+display:grid;
+font-size:.95rem
+}
+
+.table-wrap {
+border-radius:18px;
+overflow:visible;
+width:100%
+}
+
+:root {
+--accent:#58d6c6;
+--accent-2:#f6b66a;
+--bg:#07111f;
+--bg-alt:#0f1c2f;
+--danger:#ff7d7d;
+--muted:#9fb0cd;
+--panel:#0a1322d6;
+--panel-border:#96b5ff29;
+--radius:22px;
+--shadow:0 18px 50px #00000057;
+--text:#ecf2ff
+}
+
+body {
+background:radial-gradient(circle at top left,#58d6c62e,transparent 34%),radial-gradient(circle at top right,#f6b66a2e,transparent 28%),linear-gradient(160deg,var(--bg),var(--bg-alt));
+color:var(--text);
+font-family:Inter,system-ui,sans-serif;
+margin:0;
+min-height:100vh
+}
+
+button {
+border:0;
+cursor:pointer;
+transition:transform .16s ease,opacity .16s ease,background .16s ease
+}
+
+button,input,select {
+font:inherit
+}
+
+button:active {
+transform:translateY(0)
+}
+
+button:hover {
+transform:translateY(-1px)
+}
+
+h1 {
+font-size:clamp(2.4rem,5vw,4.8rem);
+line-height:.95
+}
+
+h1,h2,h3 {
+font-family:"Space Grotesk",Inter,system-ui,sans-serif;
+margin:0
+}
+
+html {
+color-scheme:dark
+}
+
+input,select {
+background:#060d18d1;
+border:1px solid #9fb0cd33;
+border-radius:14px;
+color:var(--text);
+outline:none;
+padding:13px 14px;
+width:100%
+}
+
+input:focus,select:focus {
+border-color:#58d6c6b8;
+box-shadow:0 0 0 3px #58d6c61f
+}
+
+table {
+border-collapse:collapse;
+table-layout:fixed;
+width:100%
+}
+
+tbody tr:hover {
+background:#ffffff08
+}
+
+td,th {
+border-bottom:1px solid #9fb0cd1f;
+overflow-wrap:anywhere;
+padding:14px 12px;
+vertical-align:top;
+word-break:break-word
+}
+
+thead th {
+background:#ffffff0d;
+color:#c6d3ee;
+font-size:.84rem;
+letter-spacing:.05em;
+text-align:left;
+text-transform:uppercase
+}
+
+@media (max-width: 1050px) {
+.hero,.grid-layout,.secondary-grid,.settlement-grid {
+grid-template-columns:1fr
+}
+
+.hero-card {
+grid-template-columns:repeat(3,minmax(0,1fr))
+}
+
+.hero-card__actions {
+grid-column:1 / -1;
+grid-template-columns:repeat(2,minmax(0,1fr))
+}
+}
+
+@media (max-width: 720px) {
+.app-shell {
+padding-top:18px;
+width:min(100% - 20px,100%)
+}
+
+.hero-card,.inline-form,.split-header {
+display:grid;
+grid-template-columns:1fr
+}
+
+.hero-card__item {
+padding:12px 14px
+}
+
+.panel,.matrix-card {
+padding:16px
+}
+
+table {
+font-size:.9rem
+}
+}

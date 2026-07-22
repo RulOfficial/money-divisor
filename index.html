@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Money Divisor</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div class="backdrop backdrop-a"></div>
+		<div class="backdrop backdrop-b"></div>
+		<main class="app-shell">
+			<header class="hero">
+				<div>
+					<p class="eyebrow">Matriz de pagos compartidos</p>
+					<h1>Money Divisor</h1>
+					<p class="lead">Mete gastos, elige quién participa en cada uno y deja que la app calcule quién le debe a quién con el menor número posible de transferencias.</p>
+				</div>
+				<div class="hero-card">
+					<div class="hero-card__item"><span>Participantes</span><strong id="participantCount">0</strong></div>
+					<div class="hero-card__item"><span>Gastos</span><strong id="expenseCount">0</strong></div>
+					<div class="hero-card__actions"><button type="button" id="exportJson" class="ghost">Exportar JSON</button><button type="button" id="importJson" class="ghost">Importar JSON</button><input id="jsonFileInput" type="file" accept="application/json,.json" hidden></div>
+				</div>
+			</header>
+			<section class="grid-layout">
+				<section class="panel">
+					<div class="panel-head">
+						<div>
+							<h2>Participantes</h2>
+							<p>Primero añade el grupo con el que vas a repartir los pagos.</p>
+						</div>
+					</div>
+					<form id="participantForm" class="inline-form"><input id="participantName" type="text" placeholder="Nombre del participante" maxlength="24" required><button type="submit">Añadir</button></form>
+					<div class="chip-row" id="participantChips"></div>
+				</section>
+				<section class="panel">
+					<div class="panel-head">
+						<div>
+							<h2>Nuevo gasto</h2>
+							<p>Marca quién paga y quién participa en ese gasto.</p>
+						</div>
+					</div>
+					<form id="expenseForm" class="stack-form">
+						<label>Concepto<input id="expenseTitle" type="text" placeholder="Cena, gasolina, hotel..." maxlength="40" required></label>
+						<label>Importe<input id="expenseAmount" type="number" min="0.01" step="0.01" placeholder="0,00" required></label>
+						<label>
+							Pagado por
+							<select id="expensePayer">
+							</select>
+						</label>
+						<div class="split-header">
+							<div>
+								<h3>Participan en este gasto</h3>
+								<p>Si solo marcas a una persona, ese gasto queda dedicado solo a ella.</p>
+							</div>
+							<div class="split-actions"><button type="button" id="selectAll">Todos</button><button type="button" id="selectNone">Nadie</button></div>
+						</div>
+						<div class="expense-participants" id="expenseParticipants"></div>
+						<button type="submit" class="primary">Añadir gasto</button>
+					</form>
+				</section>
+			</section>
+			<section class="grid-layout secondary-grid">
+				<section class="panel panel-wide">
+					<div class="panel-head">
+						<div>
+							<h2>Gastos añadidos</h2>
+							<p>Resumen fila a fila de cada movimiento.</p>
+						</div>
+					</div>
+					<div class="table-wrap">
+						<table>
+							<thead>
+								<tr>
+									<th>Concepto</th>
+									<th>Pagó</th>
+									<th>Importe</th>
+									<th>Participan</th>
+									<th>Reparto</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody id="expenseTableBody">
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</section>
+			<section class="panel panel-wide">
+				<div class="panel-head">
+					<div>
+						<h2>Matriz de deudas</h2>
+						<p>Primero ves cuánto debe cada persona a cada otra antes de minimizar pagos.</p>
+					</div>
+				</div>
+				<div class="settlement-grid">
+					<div class="matrix-card">
+						<h3>Matriz bruta</h3>
+						<div class="table-wrap matrix-wrap">
+							<table id="debtMatrixTable">
+							</table>
+						</div>
+					</div>
+					<div class="matrix-card">
+						<h3>Liquidación mínima</h3>
+						<p class="helper-text">Después de la matriz, el algoritmo reduce las deudas al menor número de transferencias.</p>
+						<div class="table-wrap">
+							<table>
+								<thead>
+									<tr>
+										<th>De</th>
+										<th>A</th>
+										<th>Importe</th>
+									</tr>
+								</thead>
+								<tbody id="settlementBody">
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<template id="participantChipTemplate"><button class="chip" type="button"></button></template>
+		<template id="participantCheckboxTemplate"><label class="participant-option"><input type="checkbox"><span></span></label></template>
+		<template id="expenseRowTemplate">
+			<tr>
+				<td class="expense-title-cell"></td>
+				<td class="expense-payer-cell"></td>
+				<td class="expense-amount-cell"></td>
+				<td class="expense-participants-cell"></td>
+				<td class="expense-split-cell"></td>
+				<td><button type="button" class="ghost danger expense-delete-btn">Eliminar</button></td>
+			</tr>
+		</template>
+		<script src="main.js"></script>
+	</body>
+</html>
