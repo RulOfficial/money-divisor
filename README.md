@@ -16,10 +16,10 @@ Money Divisor is a lightweight web application that helps groups split shared ex
 
 1. Add all participants.
 2. Create expenses by entering:
-   - Description
-   - Amount
-   - Who paid
-   - Who shares the expense
+   - Description.
+   - Amount.
+   - Who paid.
+   - Who shares the expense.
 3. The application automatically:
    - Calculates each participant's balance.
    - Generates the raw debt matrix.
