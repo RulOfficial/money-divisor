@@ -4,7 +4,7 @@ Money Divisor is a lightweight web application that helps groups split shared ex
 
 ## Features
 
-- 👥 Add and remove participants
+- 👥 Add and remove participants.
 - 💸 Record shared expenses.
 - ✅ Select who paid each expense.
 - 🎯 Choose exactly who participates in each expense.
